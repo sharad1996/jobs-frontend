@@ -1,0 +1,37 @@
+$theme-colors: (
+  /* color pallete
+  */ "primary": #EB8F0E,
+  "secondary": #29647E,
+  "alt-bright": #EBB364,
+  "alt-dark": #78A1B3,
+  /* additional colors
+  */ "light-dark": #fafafa,
+  "website-grey-light": #f4f5f4,
+  "website-grey-medium": #818a91,
+  "website-grey-dark": rgba(0, 0, 0, 0.54)
+);
+
+$source-code-font: "SourceCodePro";
+
+$sidebar-right-width: 150px;
+$sidebar-left-width: 150px;
+$main-section-right-padding: 25px;
+$main-section-left-padding: 25px;
+$job-logo-width: 50px;
+$job-details-width: 250px;
+$job-tags-tags-width: 170px;
+$job-tags-values-width: 170px;
+$job-time-ago-width: 50px;
+$job-apply-width: 100px;
+
+/* 950px */
+$job-item-width: $job-logo-width + $job-details-width + $job-tags-tags-width +
+  $job-tags-values-width + $job-time-ago-width + $job-apply-width;
+
+/* 1000px */
+$min-required-width-for-medium-screen-view: $main-section-left-padding + $job-item-width +
+  $main-section-right-padding;
+
+/* 1300px */
+$min-required-width-for-large-screen-view: $sidebar-left-width +
+  $min-required-width-for-medium-screen-view + $sidebar-right-width;

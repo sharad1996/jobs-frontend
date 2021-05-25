@@ -1,0 +1,193 @@
+@import "../general.scss";
+
+@mixin job-tag-style {
+  > .tag {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    margin-right: 3px;
+    border-color: map-get($theme-colors, website-grey-medium);
+    font-family: $source-code-font;
+    font-weight: 300;
+    padding: 0 4px;
+  }
+}
+
+.jobs-list {
+  text-align: center;
+  @media (max-width: $min-required-width-for-medium-screen-view - 1) {
+  }
+  @media (min-width: $min-required-width-for-medium-screen-view) {
+    width: $job-item-width;
+    margin: 0 auto;
+  }
+  .job-skeleton {
+    margin-bottom: 20px;
+  }
+  .job {
+    display: grid;
+    text-align: left;
+    border-color: map-get($theme-colors, website-grey-light);
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    > div {
+      padding: 0 3px;
+      overflow: hidden;
+    }
+    .job-details {
+      padding-left: 15px;
+      .job-name {
+        font-weight: 400;
+      }
+    }
+    .job-logo,
+    .job-apply {
+      justify-self: center;
+      align-self: center;
+      a {
+        background-color: map-get($theme-colors, website-grey-light);
+      }
+    }
+    .job-logo {
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 50px;
+      width: 50px;
+      padding: 0px;
+    }
+    .job-company {
+      color: map-get($theme-colors, website-grey-dark);
+    }
+    .job-time-ago {
+      color: map-get($theme-colors, website-grey-dark);
+    }
+    .job-tags {
+      @include job-tag-style();
+      > .tag {
+        font-size: 10px;
+        display: inline-block;
+        font-weight: 300;
+      }
+    }
+
+    @media (max-width: $min-required-width-for-medium-screen-view - 1) {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: map-get($theme-colors, website-grey-light);
+      }
+      grid-template-columns: 50px 1fr;
+      grid-template-rows: 2fr 1fr 1fr;
+      .job-tags {
+        @include job-tag-style();
+        > .tag {
+          font-size: 10px;
+        }
+      }
+      .job-logo {
+        grid-area: 1 / 1 / 4 / 2;
+      }
+      .job-details {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .job-tags {
+        padding-left: 15px;
+        &.job-tags-values {
+          grid-area: 3 / 2 / 4/ 4;
+        }
+        &.job-tags-tags {
+          grid-area: 2 / 2 / 3/ 4;
+        }
+      }
+      .job-time-ago {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+      .job-apply {
+        display: none;
+        grid-area: 1 / 4 / 4 / 4;
+      }
+    }
+    @media (min-width: $min-required-width-for-medium-screen-view) {
+      grid-template-columns: $job-logo-width $job-details-width $job-tags-tags-width $job-tags-values-width $job-time-ago-width $job-apply-width;
+      grid-template-rows: 1fr;
+      width: $job-item-width;
+      margin-left: auto;
+      margin-right: auto;
+      > div {
+        grid-row: 1 / 2;
+      }
+      .job-logo {
+        grid-column: 1 / span 1;
+      }
+      .job-details {
+        grid-column: 2 / span 1;
+      }
+      .job-tags {
+        padding-left: 15px;
+
+        &.job-tags-tags {
+          grid-column: 3 / span 1;
+        }
+        &.job-tags-values {
+          grid-column: 4 / span 1;
+        }
+        > .tag {
+          @include job-tag-style();
+          font-size: 11px;
+        }
+      }
+      .job-time-ago {
+        grid-column: 5 / span 1;
+        align-self: center;
+        justify-self: center;
+      }
+      .job-apply {
+        // display: none;
+        grid-column: 6 / span 1;
+      }
+    }
+  }
+}
+
+.jobs-details {
+  overflow: hidden;
+  .job-skeleton {
+    > * {
+      margin: 0 auto;
+    }
+  }
+}
+
+.job-details-topbar {
+  .job-details-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .job-details-company {
+    color: map-get($theme-colors, website-grey-dark);
+  }
+  .job-details-name {
+    font-weight: 400;
+  }
+  .job-details-time-ago {
+    color: map-get($theme-colors, website-grey-dark);
+  }
+  .job-details-tags {
+    margin-top: 5px;
+    @include job-tag-style();
+    > .tag {
+      font-size: 13px;
+    }
+  }
+  .job-details-apply {
+    margin-top: 15px;
+    span {
+      color: white;
+    }
+  }
+}

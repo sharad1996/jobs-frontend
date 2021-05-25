@@ -1,0 +1,107 @@
+@import "../general.scss";
+
+.navigation-bar {
+  .navigation-link {
+    color: map-get($theme-colors, website-grey-dark);
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+#main-section {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: $sidebar-left-width 1fr $sidebar-right-width;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "header header header"
+    "sidebar-left main-content sidebar-right"
+    "footer footer footer";
+
+  > #top-bar {
+    grid-area: header;
+    text-align: center;
+  }
+  > #sidebar-left,
+  > #sidebar-right {
+    // overflow: hidden;
+  }
+  > #sidebar-left {
+    grid-area: sidebar-left;
+  }
+  > #sidebar-right {
+    grid-area: sidebar-right;
+  }
+  > #main-content {
+    grid-area: main-content;
+  }
+  > footer {
+    grid-area: footer;
+    text-align: center;
+  }
+  /* Small/Medium Screens - only one column (no asides) */
+  @media (max-width: ($min-required-width-for-large-screen-view - 1px)) {
+    > aside {
+      display: none;
+    }
+    > #main-content {
+      grid-column: sidebar-left/sidebar-right;
+    }
+  }
+  /* Medium Screens - large job item with no asides */
+  // @media (min-width: ($min-required-width-for-medium-screen-view)) {
+  //   grid-template-columns: $sidebar-left-width $job-item-width $sidebar-right-width;
+  // }
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+/* @media (min-width: 1281px) {
+} */
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+/* @media (min-width: 1025px) and (max-width: 1280px) {
+} */
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/* @media (min-width: 768px) and (max-width: 1024px) {
+} */
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+} */
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+/* @media (min-width: 481px) and (max-width: 767px) {
+} */
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+/* @media (min-width: 320px) and (max-width: 480px) {
+} */

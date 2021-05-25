@@ -1,0 +1,99 @@
+@import "../general.scss";
+.get-updates {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  color: white;
+  background-color: rgba(#333333, 0.96);
+  h2 {
+    font-weight: 400;
+    font-size: 3.5vh;
+    margin-top: 30px;
+  }
+  p,
+  .get-updates-error {
+    font-size: 2.15vh;
+  }
+  .close-icon {
+    // color: white;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .get-updates-form-wrapper {
+    position: relative;
+    display: inline-block;
+    .input-email {
+      position: relative;
+      top: 2px;
+      height: 36px;
+      margin-right: 15px;
+      width: 175px;
+      padding-right: 15px;
+      padding-left: 15px;
+      border: 1px solid map-get($theme-colors, website-grey-light);
+      border-radius: 3px;
+      font-size: 16px;
+      font-family: "Montserrat";
+    }
+    .updates-send {
+      border-color: white;
+      color: white;
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+    #successAnimation {
+      position: absolute;
+      top: 2px;
+      right: 18px;
+    }
+    .get-updates-error {
+      position: absolute;
+      bottom: -22px;
+      left: 0;
+      margin-top: 5px;
+      width: 400px;
+      text-align: left;
+      font-size: 12px;
+    }
+  }
+}
+.footer-bottom-row {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  color: white;
+  background-color: map-get($theme-colors, light-dark);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  > span,
+  > a {
+    margin-right: 15px;
+  }
+  > a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .footer-social-media {
+    a {
+      margin-right: 5px;
+      display: inline-block;
+      color: map-get($theme-colors, alt-dark);
+    }
+  }
+  @media (max-width: $min-required-width-for-medium-screen-view - 1) {
+    padding-left: 16px;
+  }
+  @media (min-width: $min-required-width-for-medium-screen-view) {
+    padding-left: 27.5px;
+  }
+}
